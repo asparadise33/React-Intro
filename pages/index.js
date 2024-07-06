@@ -1,20 +1,16 @@
-import { useState } from 'react';
-import { Button } from 'react-bootstrap'; // TODO: COMMENT IN FOR AUTH
+import Counter from '../components/Counter'; // TODO: COMMENT IN FOR AUTH
 // import { signOut } from '../utils/auth'; // TODO: COMMENT IN FOR AUTH
 // import { useAuth } from '../utils/context/authContext'; // TODO: COMMENT IN FOR AUTH
 
 function Home() {
   // const { user } = useAuth();
-  const [value, setValue] = useState(0);
-
+  const counters = [{ title: 'Count Uno' }, { title: 'Counter Dos' }, { title: 'Counter Tres' }];
   return (
     <div>
       <p>Hello Paradise!</p>
-      <h1>Counter Fun!</h1>
-      <h2>{value}</h2>
-      <Button onClick={() => setValue((prevState) => prevState + 1)}>Increment!</Button>
-      <Button onClick={() => setValue((prevState) => prevState - 1)}>Decrement!</Button>
-      <Button onClick={() => setValue(0)}>Reset!</Button>
+      {counters.map((counter) => (
+        <Counter key={counter.title} title={counter.title} />
+      ))}
     </div>
   );
 }
